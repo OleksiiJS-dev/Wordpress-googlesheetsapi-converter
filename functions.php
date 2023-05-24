@@ -272,7 +272,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="form-block__right"> 
-                    <div class="form-block__data">
+                    <div class="form-block__data form-block__data__messenger">
                         <div class="form-block__messenger-title">Удобный менеджер для связи</div>
                             <div class="form-block__messenger-list">
                                 <div class="form-block__messenger"><img src="https://www.konvert.gg/wp-content/uploads/converter/images/whatsapp.svg" alt="">

@@ -628,7 +628,7 @@
     padding: 15px 25px;
 }
   .small-get__label {
-    right: 42px;
+    right: 42px !important;
 }
 .small-reverse{
   left: 50%;
@@ -690,6 +690,13 @@
     top: 113px;
     transform: translateX(-50%);
   }
+  .converter-block .converter-block-side .converter-input .input-get__label {
+    right: 42px !important;
+}
+.form-block .form-block__form .form-block__messenger-list {
+  display: flex;
+  gap: 38px;
+}
 }
 @media (max-width: 346px) {
   .converter-block {
