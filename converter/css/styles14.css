@@ -553,7 +553,7 @@
 }
 @media (max-width: 720px){
   .popup {
-    top: 401px;
+    top: 758px;
     width: 560px;
     height: 311px;
   }
@@ -566,7 +566,7 @@
 }
 @media (max-width: 590px) {
   .popup {
-    top: 401px;
+    top: 758px;
     width: 490px;
     height: 272px;
   }
@@ -581,12 +581,12 @@
 }
 @media (max-width: 515px){
   .popup {
-    top: 401px;
+    top: 940px;
     width: 340px;
     height: 189px;
   }
   .popup .popup-header {
-    padding-top: 11px;
+    padding-top: 27px;
     font-size: 28px;
   }
   .popup .popup-content{
