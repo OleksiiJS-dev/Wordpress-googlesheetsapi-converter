@@ -57,23 +57,19 @@ const submitButton = document.querySelector('.form-block__button');
 const messengerCheckboxes = document.querySelectorAll('input[name="messenger"]');
 const formBlock = document.querySelector(".form-block");
 const popupClick = document.getElementById("popup-click")
-
 const popupClose = () => {
         popup.classList.add("popup-hidden")
         wrapper.classList.remove("wrapper-filter")
         clearForm()
 }
-
 popupClick.addEventListener("click", ()=>{
   popupClose()
 })
-
 converterActionButton?.addEventListener('click', () => {
   const activeElementGive = document.querySelector('#converter-give-currency li.active');
   const activeElementGet = document.querySelector('#converter-get-currency li.active');
   const inputGetLabel = document.getElementById("input-get__label");
   const inputGiveLabel = document.getElementById("input-give__label");
-
   buttonReverse.classList.add("small-reverse")
   converterActionButton.classList.add("display");
   converterBlockSide?.classList.add("small");
@@ -125,24 +121,19 @@ converterActionButton?.addEventListener('click', () => {
     checkboxChange()
   });
 })
-
 buttonReverse?.addEventListener('click', function () {
-
   const activeGiveCurrencyElem = giveCurrencyList?.querySelector(".active");
   const activeGetCurrencyElem = getCurrencyList?.querySelector(".active");
   const allGiveElem = giveCurrencyList?.querySelectorAll('li');
   const allGetElem = getCurrencyList?.querySelectorAll('li');
-
   allGiveElem?.forEach(item => {
     item.classList.remove("active")
   })
   allGetElem?.forEach(item => {
     item.classList.remove("active")
   })
-
   const reverseGiveElem = Array.from(allGiveElem).find(item => item.textContent === activeGetCurrencyElem?.textContent);
   const reverseGetElem = Array.from(allGetElem).find(item => item.textContent === activeGiveCurrencyElem?.textContent);
-
   const currencyFunctionSwitch = (a, b) => {
     const input1 = document.getElementById("input-give-amount");
     const input2 = document.getElementById('input-get-amount');
@@ -168,7 +159,6 @@ buttonReverse?.addEventListener('click', function () {
       input2.value = (input1.value * rates[`${b}`][4]).toFixed(3);
     }
   }
-
   if (reverseGiveElem && reverseGetElem) {
     reverseGiveElem.classList.add('active')
     reverseGetElem.classList.add('active')
@@ -185,7 +175,6 @@ buttonReverse?.addEventListener('click', function () {
   }
   console.log()
 })
-
 const checkboxChange = () => {
   if (checkbox.checked) {
     submitButton.classList.remove('disabled');

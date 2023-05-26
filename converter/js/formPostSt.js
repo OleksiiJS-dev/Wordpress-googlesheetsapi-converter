@@ -3,7 +3,6 @@
 const form = document.getElementById('MyForm');
 const popup = document.querySelector(".popup")
 const wrapper = document.querySelector(".wrapper")
-
 const setFormNumber = () => {
     function getRandomEightDigitNumberWithLeadingZeros() {
         const min = 0;
@@ -21,7 +20,6 @@ const setFormData = () => {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
-
         return `${day}.${month}.${year}`;
     }
     const currentDate = new Date();
@@ -127,8 +125,6 @@ const clearForm = () => {
     checkbox.checked = false;
     checkboxChange()
 }
-
-
 form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const message =
@@ -216,4 +212,3 @@ form?.addEventListener('submit', (event) => {
     //     });
 
 });
-// credits 
