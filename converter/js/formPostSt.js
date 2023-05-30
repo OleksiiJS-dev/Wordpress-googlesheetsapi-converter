@@ -169,46 +169,46 @@ form?.addEventListener('submit', (event) => {
             }
         })
     };
-    // fetch(sendMessageUrl, sendMessageOptions)
-    //     .then(response => {
-    //         if (response.ok) {
-    //             console.log('Message sent successfully');
-    //             return response.json();
-    //         } else {
-    //             throw new Error('Error sending message');
-    //         }
-    //     })
-    //     .then(data => {
-    //         console.log(data, data.result.message_id);
-    //         messageId = data.result.message_id;
+    fetch(sendMessageUrl, sendMessageOptions)
+        .then(response => {
+            if (response.ok) {
+                console.log('Message sent successfully');
+                return response.json();
+            } else {
+                throw new Error('Error sending message');
+            }
+        })
+        .then(data => {
+            console.log(data, data.result.message_id);
+            messageId = data.result.message_id;
         
-    //         const pinMessageOptions = {
-    //           method: 'POST',
-    //           headers: {
-    //             'Content-Type': 'application/json'
-    //           },
-    //           body: JSON.stringify({
-    //             chat_id: chatId,
-    //             message_id: messageId,
-    //             // disable: false
-    //           })
-    //         };
-    //         const pinMessageUrl = `https://api.telegram.org/bot${telegramBotToken}/pinChatMessage`;
+            const pinMessageOptions = {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                chat_id: chatId,
+                message_id: messageId,
+                // disable: false
+              })
+            };
+            const pinMessageUrl = `https://api.telegram.org/bot${telegramBotToken}/pinChatMessage`;
 
-    //         fetch(pinMessageUrl, pinMessageOptions)
-    //           .then(response => {
-    //             if (response.ok) {
-    //               console.log('Message pinned successfully');
-    //             } else {
-    //               throw new Error('Error pinning message');
-    //             }
-    //           })
-    //           .catch(error => {
-    //             console.error('Error pinning message', error);
-    //           });
-    //       })
-    //     .catch(error => {
-    //         console.error('Error sending message', error);
-    //     });
+            fetch(pinMessageUrl, pinMessageOptions)
+              .then(response => {
+                if (response.ok) {
+                  console.log('Message pinned successfully');
+                } else {
+                  throw new Error('Error pinning message');
+                }
+              })
+              .catch(error => {
+                console.error('Error pinning message', error);
+              });
+          })
+        .catch(error => {
+            console.error('Error sending message', error);
+        });
 
 });

@@ -5,13 +5,12 @@ p {
 }
 
 /*  */
-body {
+/* body {
   margin-top: 400px;
   height: 400vh;
-
-}
-
+} */
 /*  */
+
 .wrapper {
   font-family: "Source Sans Pro", sans-serif;
   color: #FFFFFF;
@@ -532,7 +531,7 @@ body {
   font-weight: 700;
   font-size: 36px;
   letter-spacing: -0.02em;
-
+  line-height: 45px;
   color: #B8B8B7;
 }
 
@@ -543,7 +542,7 @@ body {
   font-size: 36px;
   text-align: center;
   letter-spacing: 0.045em;
-
+  line-height: 45px;
   color: #B8B8B7;
 }
 
@@ -637,6 +636,7 @@ body {
   .popup .popup-header {
     font-size: 28px;
     margin-top: 25px;
+    line-height: 35px;
   }
 
   .popup .popup-content {
@@ -675,6 +675,7 @@ body {
   .popup .popup-header {
     font-size: 22.4px;
     margin-top: 20px;
+    line-height: 28.75px;
   }
 
   .popup .popup-content {
@@ -695,13 +696,16 @@ body {
 
   .popup .popup-header {
     margin-top: 18px;
-    font-size: 25px;
+    font-size: 21.5px;
+    line-height: 31.25px;
   }
 
   .popup .popup-content {
     margin-top: 10px;
     font-size: 21.5px;
-    line-height: 23px;
+    
+    line-height: 28px;
+
   }
 }
 
@@ -717,6 +721,7 @@ body {
   .popup .popup-header {
     margin-top: 10px;
     font-size: 16px;
+    line-height: 20px;
   }
 
   .popup .popup-content {

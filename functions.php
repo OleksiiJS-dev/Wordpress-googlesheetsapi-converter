@@ -316,7 +316,8 @@ ob_start();
             ВАША ЗАЯВКА ПРИНЯТА
         </p>
         <p class="popup-content">
-            Ожидайте, с вами свяжется менеджер для уточнения деталей
+            Ожидайте, с вами свяжется менеджер
+            <br>для уточнения деталей
         </p>
     </div>
     <script src="https://www.konvert.gg/wp-content/uploads/converter/js/converterSt.js"></script>
