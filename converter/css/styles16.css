@@ -42,17 +42,63 @@ p {
   padding-bottom: 101px;
 }
 
-.converter-block .converter-block-side .side-title {
-  font-size: 25px;
-  line-height: 80%;
-  color: #FFFFFF;
-  margin-bottom: 17px;
-  padding: 15px;
-  display: inline-block;
-  background: #3e4046;
-  margin-top: -10px;
+.side-title-slider {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #4D4E55;
+  padding: 10px;
+}
+
+.side-title-elements {
+  display: flex;
+  padding: 10px;
+  background-color: #3F4045;
   border-radius: 10px;
 }
+
+.side-title-element {
+  z-index: 1;
+}
+
+.slider {
+  top: 10px;
+  background-color: #558ac7;
+  position: absolute;
+  height: 43px;
+  width: 50%;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.slider-left {
+  left: 10px;
+}
+
+.side-title-element {
+  transition: color 0.5s ease;
+}
+
+.slider-left-sell-el {
+  padding-left: 27px;
+}
+
+.slider-left-buy-el {
+  padding-left: 83px;
+}
+
+.slider-deactive {
+  right: 10px;
+}
+
+.right-slider-sell-element {
+  padding-left: 7px;
+}
+
+.right-slider-buy-element {
+  padding-left: 85px;
+}
+
+
+
 
 .converter-block .converter-block-side .title-give-second-block {
   display: block;
@@ -65,7 +111,6 @@ p {
 
 .converter-block .converter-block-side .converter-input {
   font-size: 20px;
-  margin-top: -37px;
   padding: 15px;
   position: relative;
   display: flex;
@@ -237,6 +282,8 @@ p {
   font-size: 18px;
   line-height: 22px;
   color: white;
+
+  border: none;
 }
 
 .converter-block .converter-block-side .converter-button-container .button-update {

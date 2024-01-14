@@ -44,15 +44,38 @@
         .wrapper {
             height: 100%;
         }
+
+        /* remove in a wp version(download) */
+        .converter-wrapper {
+            padding: 30px;
+        }
+
+        body {
+            max-width: 375px;
+        }
     </style>
     <title>Converter</title>
 </head>
 
 <body>
     <div class="wrapper converter-wrapper">
+        <!--  -->
+
         <div class="block converter-block converter-block__small">
             <div class="block converter-block-side converter-give">
-                <div id="converter-give-title" class="side-title">Продажа</div>
+                <!-- side-title with  side-title-slider-->
+                <div id="converter-give-title" class="side-title side-title-slider 
+                side-title-active">
+                    <div id="side-title-id-left" class="side-title-elements side-title-slider slider-active">
+                        <div id="slider-left-sell-el"
+                            class="side-title-element slider-left-element slider-super-active slider-left-sell-el">
+                            ПРОДАЖА</div>
+                        <div id="slider-left-buy-el"
+                            class="side-title-element slider-left-element slider-super-active slider-left-buy-el">
+                            ПОКУПКА</div>
+                        <div id="slider-left" class="slider slider-left slider-active slider-active-animation"></div>
+                    </div>
+                </div>
                 <div class="converter-input__give converter-input">
                     <div id="input-give__label" class="input-give__label">USDT</div>
                     <input id="input-give-amount" class="" type="text">
@@ -61,7 +84,17 @@
                 </ul>
             </div>
             <div class="block converter-block-side converter-get">
-                <div class="converter-get-title side-title">Покупка</div>
+                <!-- side-title with  side-title-slider-->
+                <div class="converter-get-title side-title side-title-slider 
+                side-title-disabled">
+                    <div id="side-title-id-right" class="side-title-elements side-title-slider ">
+                        <div id="slider-right-sell-el"
+                            class="side-title-element slider-right-element  right-slider-sell-element">ПРОДАЖА</div>
+                        <div id="slider-right-buy-el"
+                            class="side-title-element slider-right-element  right-slider-buy-element">ПОКУПКА</div>
+                        <div id="slider-right" class="slider slider-deactive "></div>
+                    </div>
+                </div>
                 <div class="converter-input__get converter-input">
                     <div id="input-get__label" class="input-get__label">USDT</div>
                     <input id="input-get-amount" class="" type="text">
@@ -70,11 +103,13 @@
                 </ul>
                 <div class="converter-button-container">
                     <button id="converter-button-update" class="converter-button button-update">Обновить курс</button>
-                    <button id="converter-button" class="converter-button converter-button-action">Заполнить заявку</button>
+                    <button id="converter-button" class="converter-button converter-button-action">Заполнить
+                        заявку</button>
                 </div>
             </div>
             <div id="converter-button__reverse" class="converter-button__reverse"></div>
         </div>
+
         <div class="block form-block">
             <Form id="MyForm">
                 <div class="form-block__title">Дополнительная информация о заявке</div>
@@ -86,13 +121,8 @@
                         </div>
                         <div class="form-block__data">
                             <label for="number">Ваш номер телефона</label>
-                            <input 
-                            class="form-block__input" 
-                            id="tel" 
-                            placeholder="+ХХХ…" 
-                            type="tel" 
-                            oninput="this.value = this.value.replace(/[^0-9+]/g, '');"
-                            required>
+                            <input class="form-block__input" id="tel" placeholder="+ХХХ…" type="tel"
+                                oninput="this.value = this.value.replace(/[^0-9+]/g, '');" required>
                         </div>
                     </div>
                     <div class="form-block__right">
@@ -175,6 +205,132 @@
     <script defer src="./converter/js/converterSt.js"></script>
     <script src="./converter/js/formPostSt.js"></script>
     <script src="./converter/js/buttons.js"></script>
+    <script src="./converter/js/slider.js"></script>
 </body>
+
+<!-- <body>
+    <div class="wrapper converter-wrapper">
+        <div class="block converter-block converter-block__small">
+            <div class="block converter-block-side converter-give">
+                <div id="converter-give-title" class="side-title">Продажа</div>
+                <div class="converter-input__give converter-input">
+                    <div id="input-give__label" class="input-give__label">USDT</div>
+                    <input id="input-give-amount" class="" type="text">
+                </div>
+                <ul id="converter-give-currency" class="converter-give-currency">
+                </ul>
+            </div>
+            <div class="block converter-block-side converter-get">
+                <div class="converter-get-title side-title">Покупка</div>
+                <div class="converter-input__get converter-input">
+                    <div id="input-get__label" class="input-get__label">USDT</div>
+                    <input id="input-get-amount" class="" type="text">
+                </div>
+                <ul id="converter-get-currency" class="converter-get-currency">
+                </ul>
+                <div class="converter-button-container">
+                    <button id="converter-button-update" class="converter-button button-update">Обновить курс</button>
+                    <button id="converter-button" class="converter-button converter-button-action">Заполнить
+                        заявку</button>
+                </div>
+            </div>
+            <div id="converter-button__reverse" class="converter-button__reverse"></div>
+        </div>
+        <div class="block form-block">
+            <Form id="MyForm">
+                <div class="form-block__title">Дополнительная информация о заявке</div>
+                <div class="form-block__form">
+                    <div class=" heigh-data form-block__left ">
+                        <div class="form-block__data">
+                            <label for="name">Как к вам можно обращаться?</label>
+                            <input class="form-block__input" id="name" placeholder="Alexey K." type="name" required>
+                        </div>
+                        <div class="form-block__data">
+                            <label for="number">Ваш номер телефона</label>
+                            <input class="form-block__input" id="tel" placeholder="+ХХХ…" type="tel"
+                                oninput="this.value = this.value.replace(/[^0-9+]/g, '');" required>
+                        </div>
+                    </div>
+                    <div class="form-block__right">
+                        <div class="form-block__data form-block__data__messenger">
+                            <label for="messenger" class="form-block__messenger-title">Удобный мессенджер для
+                                связи</label>
+                            <div class="form-block__messenger-list">
+                                <div class="form-block__messenger"><img src="./converter/images/whatsapp.svg" alt="">
+                                    <input type="checkbox" id="myCheckboxWhatsapp" name="messenger" required>
+                                    <label for="myCheckboxWhatsapp"></label>
+                                </div>
+                                <div class="form-block__messenger"><img src="./converter/images/telegram.svg" alt="">
+                                    <input type="checkbox" id="myCheckboxTelegram" name="messenger" required>
+                                    <label for="myCheckboxTelegram"></label>
+                                </div>
+                                <div class="form-block__messenger"><img src="./converter/images/viber.svg" alt="">
+                                    <input type="checkbox" id="myCheckboxViber" name="messenger" required>
+                                    <label for="myCheckboxViber"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-block__data">
+                            <label for="card-number" class="form-block__messenger-title">Город, в котором вам удобно
+                                произвести обмен</label>
+                            <div class="data_city">
+                                <div class="data_city-st-el">
+                                    <div class="data_city-st-el-fix">
+                                        <input type="checkbox" id="1" name="city" required>
+                                        Подгорица
+                                    </div>
+                                    <div class="">
+                                        <input type="checkbox" id="2" name="city" required>
+                                        Будва
+                                    </div>
+                                    <div class="">
+                                        <input type="checkbox" id="3" name="city" required>
+                                        Бар
+                                    </div>
+                                </div>
+                                <div class="data_city-nd-el">
+                                    <input type="checkbox" id="other-city" name="city" required>
+                                    Другие <input class="form-block__input" placeholder="Укажите Город"
+                                        id="other-city-input" name="other-city-input" type="" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-block__data">
+                    <label for="commentary">Комментарии</label>
+                    <input class="form-block__input" placeholder="Необязательно" id="commentary" name="commentary"
+                        type="commentary">
+                </div>
+                <div class="form-block__send">
+                    <div class="form-block__checkbox"> <input type="checkbox" required> Я соглашаюсь с <span
+                            class="form-block__policy">
+                            <a href="https://www.konvert.gg/policy/">Политикой</a>
+                        </span></div>
+                    <button type="submit" class="form-block__button disabled" id="submit-btn"
+                        value="Отправить заявку">Отправить заявку</button>
+                    <div class="form-block__division">ЛИБО</div>
+                    <a class="form-block__help" href="https://t.me/konvertme_manager" target="_blank">
+                        <div class="form-block__button">Помощь менеджера</div>
+                    </a>
+                </div>
+            </Form>
+        </div>
+    </div>
+    <div class="popup popup-hidden">
+        <div class="popup-close">
+            <img id="popup-click" class="popup-cross" src="./converter/images/cross_icon.svg">
+        </div>
+        <p class="popup-header">
+            ВАША ЗАЯВКА ПРИНЯТА
+        </p>
+        <p class="popup-content">
+            Ожидайте, с вами свяжется менеджер<br>для уточнения деталей
+        </p>
+    </div>
+    <script defer src="./converter/js/converterSt.js"></script>
+    <script src="./converter/js/formPostSt.js"></script>
+    <script src="./converter/js/buttons.js"></script>
+</body> -->
 
 </html>
