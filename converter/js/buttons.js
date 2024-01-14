@@ -1,47 +1,6 @@
 // @ts-nocheck
-const symbolsІecond = [
-  {
-    name: 'USDT',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/1. USDT.svg'
-  },
-  {
-    name: 'EUR',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/2. EUR.svg'
-  },
-  {
-    name: 'UAH',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/3. UAH.svg'
-  },
-  {
-    name: 'RUB',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/4. RUB.svg'
-  },
-  {
-    name: 'KZT',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/5. KZT.svg'
-  },
-  {
-    name: 'BYN',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/6. BYN.svg'
-  },
-  {
-    name: 'KGS',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/7. KGS.svg'
-  },
-  {
-    name: 'TJS',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/8. TJS.svg'
-  },
-  {
-    name: 'GEL',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/9. GEL.svg'
-  },
-  {
-    name: 'USD',
-    image: 'https://www.konvert.gg/wp-content/uploads/converter/images/10. USD.svg'
-  }
-];
-const converterActionButton = document.querySelector(".converter-button");
+const symbolsІecond = [];
+const converterActionButton = document.querySelector(".converter-button-action");
 const converterBlockSide = document.querySelector(".converter-block-side");
 const converterGet = document.querySelector(".converter-get");
 const converterGiveCurrency = document.querySelector("#converter-give-currency");
@@ -56,22 +15,28 @@ const checkbox = document.querySelector('.form-block__checkbox input');
 const submitButton = document.querySelector('.form-block__button');
 const messengerCheckboxes = document.querySelectorAll('input[name="messenger"]');
 const formBlock = document.querySelector(".form-block");
-const popupClick = document.getElementById("popup-click")
+const popupClick = document.getElementById("popup-click");
+// FOR WP ITS UNCOMMENTED
+const updateButton = document.getElementById('converter-button-update');
+
 const popupClose = () => {
-        popup.classList.add("popup-hidden")
-        wrapper.classList.remove("wrapper-filter")
-        clearForm()
-}
-popupClick.addEventListener("click", ()=>{
-  popupClose()
-})
-converterActionButton?.addEventListener('click', () => {
+  popup.classList.add("popup-hidden");
+  wrapper.classList.remove("wrapper-filter");
+  clearForm();
+};
+
+popupClick.addEventListener("click", () => {
+  popupClose();
+});
+
+converterActionButton.addEventListener('click', () => {
   const activeElementGive = document.querySelector('#converter-give-currency li.active');
   const activeElementGet = document.querySelector('#converter-get-currency li.active');
   const inputGetLabel = document.getElementById("input-get__label");
   const inputGiveLabel = document.getElementById("input-give__label");
-  buttonReverse.classList.add("small-reverse")
+  buttonReverse.classList.add("small-reverse");
   converterActionButton.classList.add("display");
+  updateButton.classList.add("display");
   converterBlockSide?.classList.add("small");
   converterGet?.classList.add("small");
   converterGiveCurrency?.classList.add('small-ul');
@@ -88,8 +53,8 @@ converterActionButton?.addEventListener('click', () => {
     if (secondSpanGive && firstSpanGive) {
       converterGiveAmount.innerHTML = '';
       inputGiveLabel.innerHTML = secondSpanGive.innerHTML + firstSpanGive.innerHTML;
-      inputGiveLabel?.classList.add("small-give__label")
-      inputGiveLabel?.classList.remove("input-give__label")
+      inputGiveLabel?.classList.add("small-give__label");
+      inputGiveLabel?.classList.remove("input-give__label");
     }
     if (activeElementGet) {
       const secondSpanGet = activeElementGet.querySelectorAll('span')[1];
@@ -97,8 +62,8 @@ converterActionButton?.addEventListener('click', () => {
       if (secondSpanGet && firstSpanGet) {
         sideTitleGet.innerHTML = null;
         inputGetLabel.innerHTML = secondSpanGet.innerHTML + firstSpanGet.innerHTML;
-        inputGetLabel?.classList.add("small-get__label")
-        inputGetLabel?.classList.remove("input-get__label")
+        inputGetLabel?.classList.add("small-get__label");
+        inputGetLabel?.classList.remove("input-get__label");
       }
     }
   }
@@ -109,7 +74,7 @@ converterActionButton?.addEventListener('click', () => {
         messengerCheckboxes.forEach((otherCheckbox) => {
           if (otherCheckbox !== checkbox) {
             otherCheckbox.checked = false;
-            otherCheckbox.removeAttribute("required")
+            otherCheckbox.removeAttribute("required");
             event.target.setAttribute('required', '');
           }
         });
@@ -118,22 +83,29 @@ converterActionButton?.addEventListener('click', () => {
   });
 
   checkbox.addEventListener('change', function () {
-    checkboxChange()
+    checkboxChange();
   });
+  
 })
+
 buttonReverse?.addEventListener('click', function () {
   const activeGiveCurrencyElem = giveCurrencyList?.querySelector(".active");
   const activeGetCurrencyElem = getCurrencyList?.querySelector(".active");
   const allGiveElem = giveCurrencyList?.querySelectorAll('li');
   const allGetElem = getCurrencyList?.querySelectorAll('li');
+
   allGiveElem?.forEach(item => {
-    item.classList.remove("active")
+    item.classList.remove("active");
   })
+
   allGetElem?.forEach(item => {
-    item.classList.remove("active")
+    item.classList.remove("active");
   })
+
   const reverseGiveElem = Array.from(allGiveElem).find(item => item.textContent === activeGetCurrencyElem?.textContent);
+
   const reverseGetElem = Array.from(allGetElem).find(item => item.textContent === activeGiveCurrencyElem?.textContent);
+
   const currencyFunctionSwitch = (a, b) => {
     const input1 = document.getElementById("input-give-amount");
     const input2 = document.getElementById('input-get-amount');
@@ -160,21 +132,32 @@ buttonReverse?.addEventListener('click', function () {
     }
   }
   if (reverseGiveElem && reverseGetElem) {
-    reverseGiveElem.classList.add('active')
-    reverseGetElem.classList.add('active')
+    reverseGiveElem.classList.add('active');
+    reverseGetElem.classList.add('active');
     const inputGetLabel = document.getElementById("input-get__label");
     const inputGiveLabel = document.getElementById("input-give__label");
     const temp = inputGetLabel.innerHTML;
     inputGetLabel.innerHTML = inputGiveLabel.innerHTML;
     inputGiveLabel.innerHTML = temp;
-    giveCurrency = reverseGiveElem.textContent
-    getCurrency = reverseGetElem.textContent
+    giveCurrency = reverseGiveElem.textContent;
+    getCurrency = reverseGetElem.textContent;
     exchangeRateApi = `${giveCurrency}${getCurrency}`
     currencyFunctionSwitch(rates, exchangeRateApi)
     console.log(exchangeRateApi, reverseGiveElem.textContent, giveCurrency, reverseGetElem.textContent, getCurrency, formCurrency)
   }
-  console.log()
-})
+
+  allGetElem.forEach((el) => {
+    el.classList.remove("hidden-curr");
+  })
+
+  allGetElem.forEach((el) => {
+    if (el.innerText === activeGetCurrencyElem.innerText) {
+      el.classList.add("hidden-curr");
+    }
+  })
+
+});
+
 const checkboxChange = () => {
   if (checkbox.checked) {
     submitButton.classList.remove('disabled');
@@ -182,3 +165,46 @@ const checkboxChange = () => {
     submitButton.classList.add('disabled');
   }
 }
+
+const cityCheckboxes = document.querySelectorAll('input[name="city"]');
+const otherCityCheckBox = document.getElementById("other-city");
+const otherCityCheckBoxInput = document.getElementById('other-city-input');
+
+cityCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', (event) => {
+    if (event.target.checked) {
+      cityCheckboxes.forEach((otherCheckbox) => {
+        if (otherCheckbox !== checkbox) {
+          otherCheckbox.checked = false;
+          otherCheckbox.removeAttribute("required");
+          event.target.setAttribute('required', '');
+        }
+      });
+    }
+    if (event.target.id === "1") {
+      otherCityCheckBoxInput.setAttribute("disabled", '');
+      otherCityCheckBoxInput.value = '';
+    }
+    else if (event.target.id === "2") {
+      otherCityCheckBoxInput.setAttribute("disabled", '');
+      otherCityCheckBoxInput.value = '';
+    }
+    else if (event.target.id === "3") {
+      otherCityCheckBoxInput.setAttribute("disabled", '');
+      otherCityCheckBoxInput.value = '';
+    }
+  });
+});
+
+otherCityCheckBox.addEventListener('change', event => {
+  if (event.target.checked) {
+    console.log("checkbox");
+    otherCityCheckBoxInput.setAttribute("required", '');
+    otherCityCheckBoxInput.removeAttribute("disabled");
+  } else {
+    console.log("uncheckbox")
+    otherCityCheckBoxInput.removeAttribute("required");
+    otherCityCheckBoxInput.setAttribute("disabled", '');
+    otherCityCheckBoxInput.value = '';
+  }
+});

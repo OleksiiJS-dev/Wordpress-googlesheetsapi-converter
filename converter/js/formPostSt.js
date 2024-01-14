@@ -13,7 +13,7 @@ const setFormNumber = () => {
     }
     const randomEightDigitNumberWithLeadingZeros = getRandomEightDigitNumberWithLeadingZeros();
     const formNumber = randomEightDigitNumberWithLeadingZeros;
-    return formNumber
+    return formNumber;
 }
 const setFormData = () => {
     function formatDate(date) {
@@ -24,11 +24,11 @@ const setFormData = () => {
     }
     const currentDate = new Date();
     const formData = formatDate(currentDate);
-    return formData
+    return formData;
 }
 const setFormReceiveLocation = () => {
     const formReceiveLocation = 'Сайт';
-    return formReceiveLocation
+    return formReceiveLocation;
 }
 const setFormStatus = () => {
     const formStatus = '🆕 Новая';
@@ -36,27 +36,27 @@ const setFormStatus = () => {
 }
 const setFormManager = () => {
     const formManager = '';
-    return formManager
+    return formManager;
 }
 const setFormName = () => {
     const name = document.getElementById('name');
     let formName = name.value;
-    return formName
+    return formName;
 }
 const setFormTel = () => {
     const tel = document.getElementById('tel');
     const formTel = tel.value;
-    return formTel
+    return formTel;
 }
 const setFormCard = () => {
     const card = document.getElementById('card-number');
     const formCard = card.value;
-    return formCard
+    return formCard;
 }
 const setFormGive = () => {
     const give = document.getElementById("input-give-amount");
     const formGive = give.value;
-    return formGive
+    return formGive;
 }
 const setFormGet = () => {
     const get = document.getElementById("input-get-amount");
@@ -66,12 +66,12 @@ const setFormGet = () => {
 const setFormGiveCurr = () => {
     const giveCurr = document.getElementById("input-give__label");
     const formGiveCurr = giveCurr?.textContent;
-    return formGiveCurr
+    return formGiveCurr;
 }
 const setFormGetCurr = () => {
     const getCurr = document.getElementById("input-get__label");
     const formGetCurr = getCurr?.textContent;
-    return formGetCurr
+    return formGetCurr;
 }
 const setFormPromocode = () => {
     const promocode = document.getElementById("promocode");
@@ -79,19 +79,19 @@ const setFormPromocode = () => {
         promocode.value = ''
     }
     const formPromocode = promocode.value;
-    return formPromocode
+    return formPromocode;
 }
 const setFromTelegram = () => {
     const formTelegram = '';
-    return formTelegram
+    return formTelegram;
 }
 const setFormCommentary = () => {
     const commentary = document.getElementById("commentary");
     if (!commentary.value) {
-        commentary.value = ''
+        commentary.value = '';
     }
     const formCommentary = commentary.value;
-    return formCommentary
+    return formCommentary;
 }
 const setFormMessenger = () => {
     const messenger = document.querySelector("input[type=checkbox][name=messenger][required]")
@@ -105,6 +105,36 @@ const setFormMessenger = () => {
     }
     return formMesenger;
 }
+const setFormCity = () => {
+    // const messenger = document.querySelector("input[type=checkbox][name=messenger][required]")
+    // let formMesenger = ''
+    // if (messenger.id === 'myCheckboxWhatsapp' && messenger.id) {
+    //     formMesenger = 'Whatsapp';
+    // } else if (messenger.id === 'myCheckboxTelegram' && messenger.id) {
+    //     formMesenger = 'Telegram';
+    // } else if (messenger.id === 'myCheckboxViber' && messenger.id) {
+    //     formMesenger = 'Viber';
+    // }
+    // return formMesenger;
+    const cityExchange = Object;
+
+    const otherCityInput = document.getElementById('other-city-input');
+    const otherCity = document.querySelector("input[type=checkbox][name=city][required]");
+
+    if (otherCity.id === "1") {
+        cityExchange.value = 'Подгорица';
+    }
+    else if (otherCity.id === "2") {
+        cityExchange.value = 'Будва';
+    }
+    else if (otherCity.id === "3") {
+        cityExchange.value = 'Бар';
+    }
+    else if (otherCity.id === "other-city") {
+        cityExchange.value = otherCityInput.value;
+    }
+    return cityExchange.value;
+}
 const setFormCurrency = () => {
     return formCurrency;
 }
@@ -114,16 +144,20 @@ const clearForm = () => {
     const tel = document.getElementById('tel');
     tel.value = ''
     const card = document.getElementById('card-number');
-    card.value = ''
+    // card.value = ''
     const promocode = document.getElementById("promocode");
-    promocode.value = ''
+    // promocode.value = ''
     const commentary = document.getElementById("commentary");
     commentary.value = ''
     messengerCheckboxes.forEach((checkbox) => {
         checkbox.checked = false
     })
     checkbox.checked = false;
-    checkboxChange()
+    checkboxChange();
+    const otherCityInput = document.getElementById('other-city-input')
+    const otherCity = document.querySelector("input[type=checkbox][name=city][required]")
+    otherCity.checked = false;
+    otherCityInput.value = '';
 }
 form?.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -136,19 +170,18 @@ form?.addEventListener('submit', (event) => {
 
 👤 ФИО: ${setFormName()}
 📞 Номер телефона: ${setFormTel()}
-🌆 Название города/карта: ${setFormCard()}
+🌆 Название города/карта: ${setFormCity()}
 📤 Продажа: ${setFormGiveCurr()}
 💸 Сумма продажи: ${setFormGive()}
 📥 Покупка: ${setFormGetCurr()}
 👀 Сумма покупки: ${setFormGet()}
 ⚖️ Курс: ${setFormCurrency()}
-🏷 Промокод: ${setFormPromocode()}
+🏷 Промокод: ${''}
 📞 Мессенджер: ${setFormMessenger()}
 🔖 Комментарий: ${setFormCommentary()}
 `
     popup.classList.remove("popup-hidden")
     wrapper.classList.add("wrapper-filter")
-
     const telegramBotToken = '6044229590:AAE14BzmF942S9Cf2dcccBbdAGwew8nklZc';
     const chatId = '-1001522353086';
     const sendMessageUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
@@ -169,6 +202,7 @@ form?.addEventListener('submit', (event) => {
             }
         })
     };
+
     fetch(sendMessageUrl, sendMessageOptions)
         .then(response => {
             if (response.ok) {
@@ -181,32 +215,30 @@ form?.addEventListener('submit', (event) => {
         .then(data => {
             console.log(data, data.result.message_id);
             messageId = data.result.message_id;
-        
+
             const pinMessageOptions = {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                chat_id: chatId,
-                message_id: messageId,
-                // disable: false
-              })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    message_id: messageId,
+                })
             };
             const pinMessageUrl = `https://api.telegram.org/bot${telegramBotToken}/pinChatMessage`;
-
             fetch(pinMessageUrl, pinMessageOptions)
-              .then(response => {
-                if (response.ok) {
-                  console.log('Message pinned successfully');
-                } else {
-                  throw new Error('Error pinning message');
-                }
-              })
-              .catch(error => {
-                console.error('Error pinning message', error);
-              });
-          })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Message pinned successfully');
+                    } else {
+                        throw new Error('Error pinning message');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error pinning message', error);
+                });
+        })
         .catch(error => {
             console.error('Error sending message', error);
         });

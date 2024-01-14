@@ -226,6 +226,7 @@ p {
   bottom: 20px;
   width: 100%;
   box-sizing: border-box;
+  gap: 4px;
 }
 
 .converter-block .converter-block-side .converter-button-container .converter-button {
@@ -235,11 +236,27 @@ p {
   background: #558ac7;
   font-size: 18px;
   line-height: 22px;
+  color: white;
+}
+
+.converter-block .converter-block-side .converter-button-container .button-update {
+  cursor: pointer;
+  padding: 15px 35px;
+  border-radius: 3px;
+  background: grey;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
 }
 
 .converter-block .converter-block-side .converter-button-container .converter-button:hover {
   transition: 0.5s ease;
   background: #4577b0;
+}
+
+.converter-block .converter-block-side .converter-button-container .button-update:hover {
+  transition: 0.5s ease;
+  background: #757575;
 }
 
 .converter-block .converter-button__reverse {
@@ -565,20 +582,59 @@ p {
   fill: #FFFFFF;
 }
 
+.data_city {
+  display: flex;
+  gap: 45px;
+}
+
+.data_city-st-el {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.data_city-nd-el {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.data_city-nd-el .form-block__input {
+  margin-bottom: 8px;
+}
+
+.data_city-st-el-fix {
+  display: flex;
+}
+
+.hidden-curr {
+  opacity: 0.1;
+}
+
+.button-update {
+  color: grey
+}
+
 @media (min-width: 1201px) {
   .converter-block-side {
     flex-basis: 520px;
+  }
+
+  .converter-block .converter-block-side {
+    padding-bottom: 59px;
   }
 
   .form-block {
     min-width: 1060px;
     width: 1060px;
   }
+
 }
 
 @media (max-width: 1200px) {
   .converter-block-side {
     flex-basis: 430px;
+    height: 624px;
   }
 
   .form-block {
@@ -588,6 +644,13 @@ p {
   .small {
     flex-basis: 440px;
   }
+
+  .converter-button-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+
 }
 
 @media (max-width: 992px) {
@@ -683,6 +746,10 @@ p {
     margin-top: 24.4px;
     line-height: 33px;
   }
+
+  .wrapper {
+    margin-left: -23px;
+  }
 }
 
 @media (max-width: 590px) {
@@ -703,7 +770,7 @@ p {
   .popup .popup-content {
     margin-top: 10px;
     font-size: 21.5px;
-    
+
     line-height: 28px;
 
   }
@@ -733,11 +800,36 @@ p {
     height: 38px;
     fill: #FFFFFF;
   }
+
+  .data_city {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+  }
+
+  .wrapper {
+    margin-left: -23px;
+  }
+
+  .converter-block .converter-block-side .converter-input .input-give__label {
+    font-size: 16px;
+  }
+
+
+  .converter-block .converter-block-side .converter-input input {
+    font-size: 18px;
+    padding: 9px 10px;
+  }
+
+  .converter-block .converter-block-side .side-title {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 674px) {
   .converter-block-side {
     flex-basis: 210px;
+    height: 663px;
   }
 
   .converter-block .converter-block-side .converter-button-container {
@@ -753,8 +845,6 @@ p {
   .form-block {
     width: 100%;
   }
-
-  .converter-block__small {}
 
   .small {
     flex-basis: 560px;
@@ -777,17 +867,21 @@ p {
     top: 113px !important;
     transform: translateX(-50%) rotate(90deg) !important;
   }
+
 }
 
 @media (max-width: 456px) {
-  .converter-block-side {
-    flex-basis: 141px;
+  .converter-block .converter-block-side {
+    padding-bottom: 140px;
   }
 
-  .converter-block .converter-block-side {}
+  .converter-block .converter-give {
+    padding-bottom: 0px;
+  }
 
   .small {
     padding-bottom: 0px !important;
+    flex-basis: 128px;
   }
 
   .converter-block {
@@ -810,6 +904,34 @@ p {
   .small-reverse {
     display: block;
   }
+
+  .converter-give {
+    padding-bottom: 0px;
+  }
+
+  .converter-block .converter-block-side .converter-give-currency li {
+    padding: 7px;
+  }
+
+  .converter-block .converter-block-side .converter-get-currency li {
+    padding: 7px;
+  }
+
+  .converter-block .converter-block-side .converter-give-currency {
+    height: 134px;
+  }
+
+  .converter-block .converter-block-side .converter-get-currency {
+    height: 143px;
+  }
+
+  .converter-block .converter-give {
+    padding-bottom: 28px;
+  }
+
+  .converter-block .converter-block-side .converter-get-currency {
+    height: 143px;
+  }
 }
 
 @media (max-width: 346px) {
@@ -817,5 +939,3 @@ p {
     gap: 21px;
   }
 }
-
-/*# sourceMappingURL=styles6.css.map */

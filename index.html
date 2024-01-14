@@ -1,53 +1,58 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./converter/css/styles14.css">
+    <link rel="stylesheet" href="./converter/css/styles16.css">
     <style>
-    .small-give__label {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 80%;
-    color: white;
-    position: absolute;
-    right: 42px;
-    }
-    .small-give__label img {
-    height: 30px;
-    margin: 0 7px;
-    }
-    .small-get__label {
-        height: 30px;
-        display: flex;
-        align-items: center;
-        font-weight: 400;
-        font-size: 25px;
-        line-height: 80%;
-        color: white;
-        position: absolute;
-        right: 15px;
-    }
-    .small-get__label img {
-    height: 30px;
-    margin: 0 7px;
-    }
-    .wrapper {
-        height: 100%;
-    }
+        .small-give__label {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 80%;
+            color: white;
+            position: absolute;
+            right: 42px;
+        }
+
+        .small-give__label img {
+            height: 30px;
+            margin: 0 7px;
+        }
+
+        .small-get__label {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 80%;
+            color: white;
+            position: absolute;
+            right: 15px;
+        }
+
+        .small-get__label img {
+            height: 30px;
+            margin: 0 7px;
+        }
+
+        .wrapper {
+            height: 100%;
+        }
     </style>
-    <title>Document</title>
+    <title>Converter</title>
 </head>
+
 <body>
     <div class="wrapper converter-wrapper">
         <div class="block converter-block converter-block__small">
             <div class="block converter-block-side converter-give">
-                <div id="converter-give-title" class="side-title">Отдаёте</div>
+                <div id="converter-give-title" class="side-title">Продажа</div>
                 <div class="converter-input__give converter-input">
                     <div id="input-give__label" class="input-give__label">USDT</div>
                     <input id="input-give-amount" class="" type="text">
@@ -56,7 +61,7 @@
                 </ul>
             </div>
             <div class="block converter-block-side converter-get">
-                <div class="converter-get-title side-title">Получаете</div>
+                <div class="converter-get-title side-title">Покупка</div>
                 <div class="converter-input__get converter-input">
                     <div id="input-get__label" class="input-get__label">USDT</div>
                     <input id="input-get-amount" class="" type="text">
@@ -64,64 +69,94 @@
                 <ul id="converter-get-currency" class="converter-get-currency">
                 </ul>
                 <div class="converter-button-container">
-                    <div id="converter-button" class="converter-button">Продолжить</div>
+                    <button id="converter-button-update" class="converter-button button-update">Обновить курс</button>
+                    <button id="converter-button" class="converter-button converter-button-action">Заполнить заявку</button>
                 </div>
             </div>
             <div id="converter-button__reverse" class="converter-button__reverse"></div>
         </div>
         <div class="block form-block">
-            <Form id="MyForm" >
+            <Form id="MyForm">
                 <div class="form-block__title">Дополнительная информация о заявке</div>
                 <div class="form-block__form">
                     <div class=" heigh-data form-block__left ">
                         <div class="form-block__data">
-                            <label for="name">Ваше ФИО латиницей</label>
-                            <input class="form-block__input" id="name" placeholder="Ivanov Ivan Ivanovich" type="name" required>
+                            <label for="name">Как к вам можно обращаться?</label>
+                            <input class="form-block__input" id="name" placeholder="Alexey K." type="name" required>
                         </div>
                         <div class="form-block__data">
-                            <label for="tel">Ваш номер телефона</label>
-                            <input class="form-block__input" id="tel" placeholder="+ХХХ…" type="tel" required>
-                        </div>
-                        <div class="form-block__data">
-                            <label for="card-number">Карта, на которую вы хотите получить выбранную валюту</label>
-                            <input class="form-block__input"
-                                placeholder="Для получения наличных укажите город, страну" id="card-number" name="card-number" type="card-number" required>
+                            <label for="number">Ваш номер телефона</label>
+                            <input 
+                            class="form-block__input" 
+                            id="tel" 
+                            placeholder="+ХХХ…" 
+                            type="tel" 
+                            oninput="this.value = this.value.replace(/[^0-9+]/g, '');"
+                            required>
                         </div>
                     </div>
-                    <div class="form-block__right"> 
+                    <div class="form-block__right">
                         <div class="form-block__data form-block__data__messenger">
-                            <label for="messenger" class="form-block__messenger-title">Удобный менеджер для связи</label>
+                            <label for="messenger" class="form-block__messenger-title">Удобный мессенджер для
+                                связи</label>
                             <div class="form-block__messenger-list">
                                 <div class="form-block__messenger"><img src="./converter/images/whatsapp.svg" alt="">
                                     <input type="checkbox" id="myCheckboxWhatsapp" name="messenger" required>
-                                    <label for="myCheckboxWhatsapp" ></label>
+                                    <label for="myCheckboxWhatsapp"></label>
                                 </div>
                                 <div class="form-block__messenger"><img src="./converter/images/telegram.svg" alt="">
                                     <input type="checkbox" id="myCheckboxTelegram" name="messenger" required>
-                                    <label for="myCheckboxTelegram" ></label></div>
+                                    <label for="myCheckboxTelegram"></label>
+                                </div>
                                 <div class="form-block__messenger"><img src="./converter/images/viber.svg" alt="">
                                     <input type="checkbox" id="myCheckboxViber" name="messenger" required>
-                                    <label for="myCheckboxViber" ></label></div>
+                                    <label for="myCheckboxViber"></label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-block__data">
-                            <label for="promocode">Промокод</label>
-                            <input class="form-block__input"
-                                placeholder="Необязательно" id="promocode" name="promocode" type="promocode">
-                        </div>
-                        <div class="form-block__data">
-                            <label for="commentary">Комментарии</label>
-                            <input class="form-block__input"
-                                placeholder="Необязательно" id="commentary" name="commentary" type="commentary">
+                            <label for="card-number" class="form-block__messenger-title">Город, в котором вам удобно
+                                произвести обмен</label>
+                            <div class="data_city">
+                                <div class="data_city-st-el">
+                                    <div class="data_city-st-el-fix">
+                                        <input type="checkbox" id="1" name="city" required>
+                                        Подгорица
+                                    </div>
+                                    <div class="">
+                                        <input type="checkbox" id="2" name="city" required>
+                                        Будва
+                                    </div>
+                                    <div class="">
+                                        <input type="checkbox" id="3" name="city" required>
+                                        Бар
+                                    </div>
+                                </div>
+                                <div class="data_city-nd-el">
+                                    <input type="checkbox" id="other-city" name="city" required>
+                                    Другие <input class="form-block__input" placeholder="Укажите Город"
+                                        id="other-city-input" name="other-city-input" type="" disabled>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="form-block__data">
+                    <label for="commentary">Комментарии</label>
+                    <input class="form-block__input" placeholder="Необязательно" id="commentary" name="commentary"
+                        type="commentary">
+                </div>
                 <div class="form-block__send">
                     <div class="form-block__checkbox"> <input type="checkbox" required> Я соглашаюсь с <span
-                            class="form-block__policy"><a>Политикой</a></span></div>
-                    <button type="submit" class="form-block__button disabled" id="submit-btn" value="Отправить заявку">Отправить заявку</button>
+                            class="form-block__policy">
+                            <a href="https://www.konvert.gg/policy/">Политикой</a>
+                        </span></div>
+                    <button type="submit" class="form-block__button disabled" id="submit-btn"
+                        value="Отправить заявку">Отправить заявку</button>
                     <div class="form-block__division">ЛИБО</div>
-                    <a class="form-block__help" href="https://t.me/konvertme_manager" target="_blank"><div class="form-block__button">Помощь менеджера</div></a>
+                    <a class="form-block__help" href="https://t.me/konvertme_manager" target="_blank">
+                        <div class="form-block__button">Помощь менеджера</div>
+                    </a>
                 </div>
             </Form>
         </div>
@@ -137,7 +172,7 @@
             Ожидайте, с вами свяжется менеджер<br>для уточнения деталей
         </p>
     </div>
-    <script src="./converter/js/converterSt.js"></script>
+    <script defer src="./converter/js/converterSt.js"></script>
     <script src="./converter/js/formPostSt.js"></script>
     <script src="./converter/js/buttons.js"></script>
 </body>

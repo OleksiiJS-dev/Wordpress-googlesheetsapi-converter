@@ -222,14 +222,15 @@ ob_start();
         padding-bottom: 141px !important;
     }
     .wrapper {
-        height: 100%;       
+        height: 100%;    
     }
+
 </style>
-<link rel="stylesheet" href="https://www.konvert.gg/wp-content/uploads/converter/css/styles14.css">
+<link rel="stylesheet" href="https://www.konvert.gg/wp-content/uploads/converter/css/styles16.css">
 <div class="wrapper converter-wrapper">
     <div class="block converter-block">
         <div class="block converter-block-side converter-give">
-            <div id="converter-give-title" class="side-title">Отдаёте</div>
+            <div id="converter-give-title" class="side-title">Продажа</div>
             <div class="converter-input__give converter-input">
                 <div id="input-give__label" class="input-give__label">USDT</div>
                 <input id="input-give-amount" class="" type="text">
@@ -238,16 +239,16 @@ ob_start();
             </ul>
         </div>
         <div class="block converter-block-side converter-get">
-            <div class="converter-get-title side-title">Получаете</div>
+            <div class="converter-get-title side-title">Покупка</div>
             <div class="converter-input__get converter-input">
                 <div id="input-get__label" class="input-get__label">USDT</div>
                 <input id="input-get-amount" class="" type="text">
             </div>
             <ul id="converter-get-currency" class="converter-get-currency">
-
             </ul>
             <div class="converter-button-container">
-                <div id="converter-button" class="converter-button">Продолжить</div>
+                <button id="converter-button-update" class="converter-button button-update">Обновить курс</button>
+                <button id="converter-button" class="converter-button converter-button-action">Заполнить заявку</button>
             </div>
         </div>
         <div id="converter-button__reverse" class="converter-button__reverse"></div>
@@ -257,23 +258,24 @@ ob_start();
             <div class="form-block__title">Дополнительная информация о заявке</div>
             <div class="form-block__form">
                 <div class="form-block__left">
-                    <div class="form-block__data">
-                        <label for="name">Ваше ФИО латиницей</label>
-                        <input class="form-block__input" id="name" placeholder="Ivanov Ivan Ivanovich" type="name" required>
-                    </div>
+                <div class="form-block__data">
+                            <label for="name">Как к вам можно обращаться?</label>
+                            <input class="form-block__input" id="name" placeholder="Alexey K." type="name" required>
+                        </div>
                     <div class="form-block__data">
                         <label for="tel">Ваш номер телефона</label>
-                        <input class="form-block__input" id="tel" placeholder="+ХХХ…" type="tel" required>
-                    </div>
-                    <div class="form-block__data">
-                        <label for="card-number">Карта, на которую вы хотите получить выбранную валюту</label>
-                        <input class="form-block__input"
-                            placeholder="Для получения наличных укажите город, страну" id="card-number" name="card-number" type="card-number" required>
+                        <input 
+                            class="form-block__input" 
+                            id="tel" 
+                            placeholder="+ХХХ…" 
+                            type="tel" 
+                            oninput="this.value = this.value.replace(/[^0-9+]/g, '');"
+                            required>
                     </div>
                 </div>
                 <div class="form-block__right"> 
                     <div class="form-block__data form-block__data__messenger">
-                        <div class="form-block__messenger-title">Удобный менеджер для связи</div>
+                        <div class="form-block__messenger-title">Удобный мессенджер для связи</div>
                             <div class="form-block__messenger-list">
                                 <div class="form-block__messenger"><img src="https://www.konvert.gg/wp-content/uploads/converter/images/whatsapp.svg" alt="">
                                     <input type="checkbox" id="myCheckboxWhatsapp" name="messenger" required>
@@ -287,20 +289,44 @@ ob_start();
                         </div>
                     </div>
                     <div class="form-block__data">
-                        <label for="promocode">Промокод</label>
-                        <input class="form-block__input"
-                            placeholder="Необязательно" id="promocode" name="promocode" type="promocode">
+                        <label for="card-number" class="form-block__messenger-title">Город, в котором вам удобно произвести обмен</label>
+                                <div class="data_city">
+                                    <div class="data_city-st-el">
+                                        <div class="data_city-st-el-fix">
+                                            <input type="checkbox" id="1" name="city" required>
+                                            Подгорица
+                                        </div>
+                                        <div class="">
+                                            <input type="checkbox" id="2" name="city" required>
+                                            Будва
+                                        </div>
+                                        <div class="">
+                                            <input type="checkbox" id="3" name="city" required>
+                                            Бар
+                                        </div>
+                                    </div>
+                                    <div class="data_city-nd-el">
+                                        <input type="checkbox" id="other-city" name="city" required>
+                                        Другие <input class="form-block__input" placeholder="Укажите Город"
+                                        id="other-city-input" name="other-city-input" type="" disabled>
+                                    </div>
+                                </div>
                     </div>
-                    <div class="form-block__data">
+                </div>
+            </div>
+            <div class="form-block__data">
                         <label for="commentary">Комментарии</label>
                         <input class="form-block__input"
                             placeholder="Необязательно" id="commentary" name="commentary" type="commentary">
                     </div>
-                </div>
-            </div>
             <div class="form-block__send">
-                <div class="form-block__checkbox"> <input type="checkbox" required> Я соглашаюсь с <span
-                        class="form-block__policy"><a>Политикой</a></span></div>
+                <div class="form-block__checkbox">
+                    <input type="checkbox" required> Я соглашаюсь с 
+                    <span
+                        class="form-block__policy">
+                        <a href="https://www.konvert.gg/policy/">Политикой</a>
+                    </span>
+                </div>
                 <button  type="submit"  class="form-block__button disabled" id="submit-btn" value="Отправить заявку">Отправить заявку</button>
                 <div class="form-block__division">ЛИБО</div>
                 <a class="form-block__help" href="https://t.me/konvertme_manager" target="_blank"><div class="form-block__button">Помощь менеджера</div></a>
